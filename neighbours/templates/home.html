@@ -20,7 +20,7 @@
 <div class="container-fluid">
     <div class="row">
 
-        {% for hood in hoods %}
+        {% for hood in hood %}
         <div class="col-lg-4 mb-4">
             <div
                 style="background-color: rgb(250, 246, 246);box-sizing: border-box; margin-top:2%;box-shadow: 0vh 0vh 1vh gainsboro;">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="">
                    
-                        <img src="{{hood.hood_logo.url}}" class="img-responsive" alt="{{image.hood_name}}"
+                        <img src="{{hood.image.url}}" class="img-responsive" alt="{{image.name}}"
                             style="width:100%;width:100%">
                         <div class="overlay">
                         </div>
@@ -47,18 +47,7 @@
                 </div>
 
 
-                <div style="padding-top:1%;padding-bottom:1%">
-                    {%if request.user.profile.neighbourhood == hood %}
-                    <a class="btn btn-dark btn-small" href="{%url 'singlehood' hood.id%}">View Hood</a>
-                    <a class="btn btn-light" href="{%url 'leavehood' hood.id%}">Leave Hood</a>
 
-                    {%elif not request.user.profile.neighbourhood%}
-
-
-                    <a class="btn btn-dark" href="{%url 'joinhood' hood.id%}">Join Hood</a>
-
-                    {%endif%}
-                </div>
 
             </div>
         </div>

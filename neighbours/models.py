@@ -59,6 +59,11 @@ class Business(models.Model):
     def __str__(self):
         return self.name
 
+    def create_business():
+    def delete_business():
+    def find_business(business_id):
+    def update_business():
+
 class Post(models.Model):
     title = models.CharField(max_length=200)
     post_image = CloudinaryField('images')
