@@ -17,12 +17,15 @@ class Neighbourhood():
     
 
 class Profile():
-    name 
-    user_id
-    neighbourhood
-    email
+    name = models.CharField(max_length=100, blank =True )
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True) 
+    user_id = models.IntegerField()
+    neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, blank=True, null=True)
+    email = models.EmailField()
+    profile_pic = CloudinaryField('profile')
+    bio = models.TextField(max_length=300, blank=True)
 
-
+    
 class Business():
     name
     user
