@@ -25,15 +25,15 @@ def post(request):
 
     return render(request, 'post.html' , {'messsage':message})
 
-def hood (request):
+def hood(request,id):
     message = "hoods page"
-    more_onHood=Neighbourhood.objects.filter(id=id).get()
-    current_hood=more_onHood.name
-    busenesses=Business.objects.filter(neighborhood=id)
+    hood=Neighbourhood.objects.get(id=id)
+    current_hood=hood.name
+    buseness=Business.objects.filter(neighborhood=id)
     posts=Post.objects.filter(neighborhood=id)
     
 
-    return render (request , 'hood.html' , {'message':message,'hood':more_onHood ,'businesses':busenesses,'current_hood':current_hood,'posts':posts})
+    return render (request , 'hood.html' , {'message':message,'hood':hood ,'business':buseness,'current_hood':current_hood,'posts':posts})
 
 
 def search(request):

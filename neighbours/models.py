@@ -48,7 +48,24 @@ class Profile(models.Model):
     def __str__(self):
         return self.name
 
+    def save_profile(self):
+        self.save()
 
+    @classmethod
+    def delete_profile(cls,id):
+        cls.objects.filter(id).delete()
+    
+
+    @classmethod
+    def update_profile(cls,id):
+        cls.objects.get(user_id=id)
+
+    @classmethod
+    def get_profile(cls,id):
+        profile = Profile.objects.all()
+        return profile
+        
+   
 class Business(models.Model):
     name = models.CharField(max_length=50)
     user = models.ForeignKey(User,on_delete=models.CASCADE,default = '')
@@ -85,6 +102,12 @@ class Post(models.Model):
     
     def __str__(self):
         return self.title
+
+    def save_post(self):
+        self.save()
+
+    def delete_post(self):
+        self.delete()
 
 
     

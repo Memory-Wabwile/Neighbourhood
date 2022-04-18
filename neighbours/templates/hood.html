@@ -29,9 +29,7 @@
         <p> location: {{hood.location}}</p>
         <p>{{hood.description}}</p>
         <p> registered by: {{hood.admin}}</p>
-        <a href="{% url 'deleteHood' hood.id%}"><i class="fa-solid fa-trash-arrow-up"></i> delete</a> 
-        <a href="{% url 'new_bizz'%}"><i class="fa-solid fa-circle-plus" ></i> add bizz</a> 
-        <a href="{% url 'new_post'%}"><i class="fa-solid fa-circle-plus"></i> post event</a> 
+        
         
         </div>
         <div class="col-sm-5 col-md-5 mt-5"> <a href="{% url 'home'%}"> <img style="width: 100%;" src="{{hood.image.url}}" alt="neighbourhood image"></a></div>
@@ -43,20 +41,20 @@
       {%endif%}
 
       <div class="row mt-5 justify-content-md-center">
-          {% if businesses %}
+          {% if business %}
          
-          {%for business in businesses%}
+          {%for business in business%}
         
           
         <div class="col-sm-8 col-md-8">
             <h5>Businesses in this area</h5>
            <ol><li> {{business.name}} <br>
-            {{business.business_description}} <br>
-            {{business.neighborhood}} <br>
-            {{business.b_email}} <br>
+            {{business.description}} <br>
+            {{business.neighbourhood}} <br>
+            {{business.email}} <br>
             posted by:{{business.user}} <br>
             <br>
-            <a href="{% url 'deletebizz' business.id%}"><i class="fa-solid fa-trash-arrow-up"></i>delete</a> 
+            
             
         </li>
            </ol>
@@ -79,8 +77,8 @@
         <br>
         
          <img style="width: 100%;box-shadow: 3px 3px 5px black;" src="{{post.post_image.url}}" alt="">
-         <h6>{{post.content}}</h6>
-        <a href="{% url 'deletepost' post.id%}"><i class="fa-solid fa-trash-arrow-up"></i>delete</a> 
+         <h6>{{post.post_description}}</h6>
+        
         {%endfor%}</div>
         
         {%else%}

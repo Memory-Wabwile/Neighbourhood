@@ -9,5 +9,6 @@ urlpatterns = [
     path('search/' , views.search , name = "search"),
     path('updateProfile/' , views.updateProfile , name = "updateProfile"),
     path('post/', views.post, name='post'),
+    path('hood/' , views.hood , name ='hood'),
 
 ]
