@@ -7,3 +7,9 @@ class Neighbourhood():
     count
     admin
     
+
+class Profile():
+    name 
+    user_id
+    neighbourhood
+    email
