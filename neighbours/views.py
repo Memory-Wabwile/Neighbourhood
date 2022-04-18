@@ -21,3 +21,13 @@ def post(request):
     message = "create a post"
 
     return render(request, 'post.html' , {'messsage':message})
+
+def search(request):
+    message = "searched items"
+
+    return render (request , 'search.html' , {'message':message})
+
+def updateProfile(request):
+    message = "update profile"
+
+    return render (request , 'updateProfile.html' , {'message':message})
