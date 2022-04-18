@@ -1,1 +1,12 @@
-{{message}}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+{% endblock %}
+<div class="div" style="background-image:url('https://res.cloudinary.com/memory987651234/image/upload/v1650289264/neigh3_gyt2rw.jpg' ); width:100% ; background-repeat: no-repeat; background-size: cover; height: 100vh;  background-position: center; text-align:center; overflow-x:hidden; opacity: 1; ">
+</div>
+{% endblock %}
