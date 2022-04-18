@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'neighbours.apps.NeighboursConfig',
+    'bootstrap4',
+    'django_bootstrap_icons',
 ]
 
 MIDDLEWARE = [
