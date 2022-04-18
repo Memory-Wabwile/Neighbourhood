@@ -4,4 +4,71 @@
 {% load static %}
 {% block content %}
 {{block.super}}
+
+<br>
+<style>
+    .container-fluid {
+        
+        margin-right: 15%;
+        
+
+    }
+</style>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+
+        {% for hood in hoods %}
+        <div class="col-lg-4 mb-4">
+            <div
+                style="background-color: rgb(250, 246, 246);box-sizing: border-box; margin-top:2%;box-shadow: 0vh 0vh 1vh gainsboro;">
+                <div class="row" style="padding-top: 1%">
+                    <div class="col-md-12">
+                        <h4 style="font-weight:600;">Name:{{hood.name}}</h4>
+                                <!-- <img src="https://img.icons8.com/color/48/000000/circled-up-right--v1.png"
+                                    style="width:15px;height:auto" /> -->
+                            </a></h4>
+
+                    </div>
+                </div>
+                <div class="row" style="font-size:10pt;">
+                    <div class="col-md-6" style="padding-bottom: 2%;font-weight:600;"> Location: {{hood.location}}
+                    </div>
+                </div>
+                <div class="">
+                   
+                        <img src="{{hood.hood_logo.url}}" class="img-responsive" alt="{{image.hood_name}}"
+                            style="width:100%;width:100%">
+                        <div class="overlay">
+                        </div>
+                    </a>
+                </div>
+
+
+                <div style="padding-top:1%;padding-bottom:1%">
+                    {%if request.user.profile.neighbourhood == hood %}
+                    <a class="btn btn-dark btn-small" href="{%url 'singlehood' hood.id%}">View Hood</a>
+                    <a class="btn btn-light" href="{%url 'leavehood' hood.id%}">Leave Hood</a>
+
+                    {%elif not request.user.profile.neighbourhood%}
+
+
+                    <a class="btn btn-dark" href="{%url 'joinhood' hood.id%}">Join Hood</a>
+
+                    {%endif%}
+                </div>
+
+            </div>
+        </div>
+
+        {% endfor %}
+
+
+    </div>
+</div>
+
+<h4 style="text-align: center; font-weight:700;">&COPY;Neighborhood 2022</h4>
 {% endblock %}
+

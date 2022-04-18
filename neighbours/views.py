@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Profile, Neighbourhood, Business, Post
 
 # Create your views here.
 
@@ -10,7 +11,9 @@ def landing(request):
 def home(request):
     message = "Home page"
 
-    return render (request,'home.html',{'message':message})
+    hood = Neighbourhood.objects.all()
+
+    return render (request,'home.html',{'message':message , 'hood':hood})
 
 def profile(request):
     message = "Profile page"
