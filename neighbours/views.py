@@ -16,3 +16,8 @@ def profile(request):
     message = "Profile page"
 
     return render (request, 'profile.html' , {'message':message})
+
+def post(request):
+    message = "create a post"
+
+    return render(request, 'post.html' , {'messsage':message})
