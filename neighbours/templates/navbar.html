@@ -1,70 +1,66 @@
 {% load bootstrap4 %}
 {% load bootstrap_icons %}
-<div class="container">
+<div class="container-fluid">
     <nav style="color: black;" class="navbar navbar-inverse">
-        <div class="container">
-
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <h1>Awwwards</h1>
 
 
-                </div>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <h1>Neighbourhood</h1>
 
-                <div style="padding-top: 1%;" class="col-sm-4 col-md-4">
 
-                    <form class="navbar-form" role="search" action="{% url 'search' %}">
-
-                        <div class="input-group">
-                            <input style="background-color: #efefef;" type="text" class="form-control"
-                                placeholder="Search for projects" name="postss">
-                            <div class="input-group-btn">
-                                <button style="border: 1px solid rgb(71, 69, 69);" class="btn btn-default"
-                                    type="search">{% bs_icon 'search' %}
-                                </button>
-                            </div>
-                        </div>
-
-                    </form>
-
-                </div>
-                {% if user.is_authenticated %}
-                <div style="display: flex; " class="navbar-right">
-                    <p style="margin-right: 2em; padding-top: 5%;"><a
-                            href="{%url 'home'%}">{% bs_icon 'house-door-fill' color='black' size='1.5em' %}</a></p>
-                    <p style="margin-right: 1em; padding-top: 5%; "><a href="{%url 'post'%}"
-                            style="color: black; font-size: 1.5em;">Submit your
-                            site</a></p>
-
-                    <ul style="list-style-type: none; margin:0 ; padding: 0;">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button"
-                                aria-expanded="false">{% bs_icon 'person-circle' size='1.5em' %}
-                                <span class="caret"></span>
-                            </a>
-                            <ul style="color: black;" class="dropdown-menu" role="menu">
-
-                                <li>
-                                    <a style="color: black;" href="{%url 'profile'%}">{% bs_icon 'person-circle' %}Profile</a>
-                                </li>
-                                <li>
-                                    <a style="color: black;" href="/accounts/password_change"> {% bs_icon 'key-fill' %}Change Password</a>
-                                </li>
-                                <li>
-                                    <a style="color: black;" href="/logout"> {% bs_icon 'file-lock-fill'  %}Logout</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-
-                </div>
-                {% else %}
-                <li style="text-decoration: none;">
-                    <a class='btn btn-secondary' href="/accounts/login">Login</a>
-                    <a class='btn btn-secondary' href="/accounts/register">Sign Up</a>
-
-                </li>
-                {% endif %}
             </div>
+
+            <div style="padding-top: 1%;" class="col-sm-4 col-md-4">
+
+                <form class="navbar-form" role="search" action="{% url 'search' %}">
+
+                    <div class="input-group">
+                        <input style="background-color: #efefef;" type="text" class="form-control"
+                            placeholder="Search for projects" name="postss">
+                        <div class="input-group-btn">
+                            <button style="border: 1px solid rgb(71, 69, 69);" class="btn btn-default"
+                                type="search">{% bs_icon 'search' %}
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div style="display: flex; " class="navbar-right">
+                <p style="margin-right: 2em; padding-top: 5%;"><a
+                        href="{%url 'home'%}">{% bs_icon 'house-door-fill' color='black' size='1.5em' %}</a></p>
+                <p style="margin-right: 1em; padding-top: 5%; "><a href="{%url 'post'%}"
+                        style="color: black; font-size: 1.5em;">Submit your
+                        site</a></p>
+
+                <ul style="list-style-type: none; margin:0 ; padding: 0;">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button"
+                            aria-expanded="false">{% bs_icon 'person-circle' size='1.5em' %}
+                            <span class="caret"></span>
+                        </a>
+                        <ul style="color: black;" class="dropdown-menu" role="menu">
+
+                            <li>
+                                <a style="color: black;"
+                                    href="{%url 'profile'%}">{% bs_icon 'person-circle' %}Profile</a>
+                            </li>
+                            <li>
+                                <a style="color: black;" href="/accounts/password_change">
+                                    {% bs_icon 'key-fill' %}Change Password</a>
+                            </li>
+                            <li>
+                                <a style="color: black;" href="/logout"> {% bs_icon 'file-lock-fill'  %}Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
     </nav>
 </div>
