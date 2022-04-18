@@ -59,10 +59,21 @@ class Business(models.Model):
     def __str__(self):
         return self.name
 
-    def create_business():
-    def delete_business():
-    def find_business(business_id):
-    def update_business():
+    def create_business(self):
+        self.save
+
+    @classmethod
+    def delete_business(cls,id):
+        cls.objects.filter(id).delete()
+
+    @classmethod
+    def find_business(cls,business_id):
+        bizna = cls.objects.filter(name__icontains=business_id)
+        return bizna
+
+    @classmethod
+    def update_business(cls,id):
+        cls.objects.filter(id=id).update
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
