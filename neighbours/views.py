@@ -11,3 +11,8 @@ def home(request):
     message = "Home page"
 
     return render (request,'home.html',{'message':message})
+
+def profile(request):
+    message = "Profile page"
+
+    return render (request, 'profile.html' , {'message':message})
