@@ -1,0 +1,38 @@
+{%extends "django_registration/base.html"%} {% load bootstrap4 %}
+{% block content %}
+<div  style="background-color: #efefef; height: 120vh;" class="container-fluid">
+    <div class="row">
+        <!-- Empty div -->
+        <div class="col-md-4"></div>
+        <div  class="col-md-5 mt-5">
+            {% if form.errors %}
+            <p> Some Information Might be Incorrect </p>
+            {% endif %}
+            <div  style="border: 2px solid rgb(59, 58, 58); border-radius: 5%;" class="panel panel-default">
+
+                <div class="panel-heading">
+                    <h3 class="text-center">Sign Up</h3>
+                </div>
+                <div  style="padding: 5%;" class="panel-body">
+
+                    <form style="margin-bottom: 9%; margin-top: 5%;" action="/accounts/register/" method="post">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        <div class="form-group">
+                            <input  style="border-radius: 25px; " type="submit" class=" btn-sm" value="Sign Up">
+                        </div>
+
+                        <input type="hidden" name="next" value="{{next}}">
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- empty div -->
+        <div class="col-md-4"></div>
+    </div>
+</div>
+{% endblock %}

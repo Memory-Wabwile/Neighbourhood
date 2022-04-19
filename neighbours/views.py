@@ -1,6 +1,8 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Profile, Neighbourhood, Business, Post
 from .forms import BusinessForm , PostForm , ProfileUpdateForm , NewHoodForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import  logout
 # Create your views here.
 
 def landing(request):
@@ -8,6 +10,7 @@ def landing(request):
 
     return render (request ,'landing.html' , {'message':message})
 
+@login_required(login_url='/accounts/login/')
 def home(request):
     message = "Home page"
 
@@ -15,11 +18,13 @@ def home(request):
 
     return render (request,'home.html',{'message':message , 'hood':hood})
 
+@login_required(login_url='/accounts/login/')
 def profile(request):
     message = "Profile page"
 
     return render (request, 'profile.html' , {'message':message})
 
+@login_required(login_url='/accounts/login/')
 def post(request):
     message = "create a post"
 
@@ -36,8 +41,9 @@ def post(request):
 
     else:
         form = PostForm()
-    return render(request, 'post.html' , {'messsage':message})
+    return render(request, 'post.html' , {'messsage':message , 'form':form})
 
+@login_required(login_url='/accounts/login/')
 def hood(request,id):
     message = "hoods page"
     hood=Neighbourhood.objects.get(id=id)
@@ -49,6 +55,7 @@ def hood(request,id):
     return render (request , 'hood.html' , {'message':message,'hood':hood ,'business':buseness,'current_hood':current_hood,'posts':posts})
 
 
+@login_required(login_url='/accounts/login/')
 def search(request):
     message = "searched items"
 
@@ -66,11 +73,35 @@ def search(request):
 
     return render (request , 'search.html' , {'message':message})
 
+@login_required(login_url='/accounts/login/')
 def updateProfile(request):
     message = "update profile"
 
-    return render (request , 'updateProfile.html' , {'message':message})
+    current_user = request.user
+    if request.method == 'POST':
 
+        
+        form = ProfileUpdateForm(
+            request.POST, request.FILES, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('profile')
+
+    else:
+        form = ProfileUpdateForm(instance=request.user)
+
+        context = {
+            'form': form
+
+        }
+
+    return render(request, 'updateProfile.html', context)
+
+
+
+@login_required(login_url='/accounts/login/')
 def joinhood(request, id):
     hood = get_object_or_404(Neighbourhood, id=id)
     profile.user.neighbourhood = hood
@@ -78,12 +109,14 @@ def joinhood(request, id):
     return redirect('hood')
 
 
+@login_required(login_url='/accounts/login/')
 def leavehood(request, id):
     hood = get_object_or_404(Neighbourhood, id=id)
     request.user.profile.neighbourhood = None
     request.user.profile.save()
     return redirect('hood')
 
+@login_required(login_url='/accounts/login/')
 def business(request):
     current_user = request.user
     if request.method == 'POST':
@@ -101,3 +134,7 @@ def business(request):
     return render(request, 'business.html', {"form": form})
 
 
+@login_required(login_url='login')
+def logout_user(request):
+    logout(request)
+    return redirect('home')

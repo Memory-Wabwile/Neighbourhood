@@ -11,7 +11,7 @@
 
             </div>
 
-
+            {% if user.is_authenticated %}
 
             <div style="display: flex; " class="navbar-right">
                 <p style="margin-right: 2em; padding-top: 5%;"><a
@@ -42,6 +42,14 @@
                 </ul>
 
             </div>
+
+            {% else %}
+            <li>
+                <a class='btn btn-default' href="/accounts/login">Login</a>
+            </li>
+
+            {% endif %}
+
 
         </div>
     </nav>

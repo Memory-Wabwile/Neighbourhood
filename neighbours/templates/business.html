@@ -3,17 +3,20 @@
 
 {% block content %}
 {% load static %}
-<div class="container mt-4">
-    <div class="col-12" >
+<div style="background-color: rgb(6, 6, 51); height: 120vh;" class="container-fluid pt-4">
+    <div class="col-8">
         <div class="container">
-
+            <h2 style="color: white; text-align: center;"> Add your business here</h2>
             <form action="" method="POST" enctype="multipart/form-data" novalidate>
                 {%csrf_token%}
-                
+
                 {% bootstrap_form form layout='inline' %}
-                <button type=submit class="btn btn-sm btn-success" value="Upload">Upload</button>
+                <div  style="justify-content: space-evenly;" class="buttons">
+                    <button type=submit class="btn btn-sm btn-info" value="Upload"> <a href="{% url 'hood' hood.id %}"> Upload</a></button>
+                    
+                </div>
             </form>
-    
+
         </div>
     </div>
 </div>
