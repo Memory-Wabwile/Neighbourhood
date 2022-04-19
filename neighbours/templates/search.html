@@ -1,11 +1,11 @@
 {%extends 'base.html'%} 
 {% block content %}
 
-<div class="container">
+<div style="background-color: rgb(6, 6, 51); height: 140vh; " class="container-fluid">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 pt-3">
       {% if searched_business%}
-      <h2>Found {{ searched_business|length }} posts</h2>
+      <h2 style="color: white;" >Found {{ searched_business|length }} posts</h2>
 
       {% for business in searched_business %}
      
@@ -16,7 +16,7 @@
                 <h4 class="card-title">{{business.title}}</h4>
                 <p class="card-text">{{business.post_description}}</p>
                 <p>By : {{business.user}}</p>
-                <p>Posted on {{business.date}}</p>
+                <p>Posted on : {{business.date}}</p>
 
             </div>
         </div>

@@ -4,10 +4,10 @@
 {% block content%}
 {{ block.super}}
 
-<div class="container-fluid">
+<div style="background-color: rgb(6, 6, 51); " class="container-fluid">
 
 
-    <div class="row">
+    <div style="color: white;" class="row">
         {%if hood%}
         <div class="col-sm-5 col-md-5 mt-5"> <a href="{% url 'home'%}"> <img style="width: 100%; border-radius: 25px;"
                     src="{{hood.image.url}}" alt="neighbourhood image"></a></div>
@@ -37,25 +37,34 @@
 
 
         <div class="col-sm-8 col-md-8">
-            <h1 style="text-align: center;">Businesses in {{hood.name}} </h1>
+            <h1 style="text-align: center; color: white;">Businesses in {{hood.name}} </h1>
 
-            <div style="padding-top: 1%;" class="col-sm-6 col-md-6">
+            <div class="row">
+                <div style="padding-top: 1%;" class="col-sm-6 col-md-6">
 
-                <form role="search" action="{% url 'search' %}">
+                    <form role="search" action="{% url 'search' %}">
 
-                    <div class="input-group">
-                        <input style="background-color: #efefef;" type="text" class="form-control"
-                            placeholder="Search for businesses" name="postss">
-                        <div class="input-group-btn">
-                            <button style="border: 1px solid rgb(71, 69, 69);" class="btn btn-default"
-                                type="search">{% bs_icon 'search' %}
-                            </button>
+                        <div class="input-group">
+                            <input style="background-color: #efefef;" type="text" class="form-control"
+                                placeholder="Search for businesses" name="business">
+                            <div class="input-group-btn">
+                                <button style="border: 1px solid rgb(71, 69, 69);" class="btn btn-default"
+                                    type="search">{% bs_icon 'search' %}
+                                </button>
+                            </div>
                         </div>
-                    </div>
 
-                </form>
+                    </form>
+                </div>
+                <div class="form col-md-4">
+
+                    <a href="{% url 'business' %}" class="btn btn-info"> Add your business</a>
+                </div>
+
 
             </div>
+
+            <button></button>
 
             <div class="card-columns mt-5">
                 <div class="card">
@@ -80,29 +89,29 @@
     </div>
     <div class="mt-5">
 
-        <h1 style="text-align: center;">Upcoming Events in the hood</h1>
+        <h1 style="text-align: center; color: white;">Upcoming Events in the hood</h1>
 
 
         <div class="row justify-content-md-center mb-5">
             {%if posts%}
-            
-                {% for post in posts%}
-                <div class="card-columns ">
-                    <div class="card" style="width:400px ; margin-left: 4%; box-shadow: 3px 3px 5px black;">
-                        <img style="width: 100%;" src="{{post.post_image.url}}" alt="">
-                        <div class="card-body">
-                            <h4 class="card-title">{{post.title}}</h4>
-                            <p class="card-text">{{post.post_description}}</p>
-                            <p>By : {{post.user}}</p>
-                            <p>Posted on {{post.date}}</p>
 
-                        </div>
+            {% for post in posts%}
+            <div class="card-columns ">
+                <div class="card" style="width:400px ; margin-left: 4%; box-shadow: 3px 3px 5px black;">
+                    <img style="width: 100%;" src="{{post.post_image.url}}" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">{{post.title}}</h4>
+                        <p class="card-text">{{post.post_description}}</p>
+                        <p>By : {{post.user}}</p>
+                        <p>Posted on {{post.date}}</p>
+
                     </div>
                 </div>
+            </div>
 
 
-                {%endfor%}
-            
+            {%endfor%}
+
 
             {%else%}
             <p>no new posts in this hood</p>

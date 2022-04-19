@@ -39,14 +39,15 @@ class Neighbourhood(models.Model):
 
 class Profile(models.Model):
     name = models.CharField(max_length=100, blank =True )
-    user_id = models.IntegerField()
+    id_number = models.IntegerField()
     neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, blank=True, null=True)
     email = models.EmailField()
     profile_pic = CloudinaryField('images')
     bio = models.TextField(max_length=300, blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return self.name
+        return self.user.username
 
     def save_profile(self):
         self.save()
