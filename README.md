@@ -22,7 +22,9 @@ click on  to view the site
 ## Design
 Landing page design for Instagram clone
 <img src="hood1.jpg" alt="">
-<img src="award2.jpeg" alt="">
+<img src="hood2.jpeg" alt="">
+<img src="hood3.jpeg" alt="">
+<img src="hood4.jpeg" alt="">
 
 
 ## Technologies Used

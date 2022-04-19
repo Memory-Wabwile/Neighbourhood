@@ -20,7 +20,7 @@
                        {% csrf_token %} {% bootstrap_form form%}
  
                        <div class="form-group">
-                           <a class="btn btn-outline" href="{% url 'home'%}"></a>
+                           <a class="btn btn-outline" href="{% url 'home'%}">Login</a>
                        </div>
  
                        <input type="hidden" name="next" value="{{next}}">
