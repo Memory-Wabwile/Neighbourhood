@@ -138,3 +138,20 @@ def business(request):
 def logout_user(request):
     logout(request)
     return redirect('home')
+
+@login_required(login_url='/accounts/login/')
+def newhood(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewHoodForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = form.save(commit=False)
+            # image.admin = current_user.profile
+
+            image.save()
+
+        return redirect('home')
+
+    else:
+        form = NewHoodForm()
+    return render(request, 'newhood.html', {"form": form})

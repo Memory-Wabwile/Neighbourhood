@@ -47,7 +47,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return self.user.username
+        return self.name
 
     def save_profile(self):
         self.save()

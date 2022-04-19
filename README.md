@@ -20,7 +20,7 @@ click on  to view the site
 7. A user is able to view details of a single neighbourhood.
 
 ## Design
-Landing page design for Instagram clone
+Landing page design for Neighbourhood app
 <img src="hood1.jpg" alt="">
 <img src="hood2.jpeg" alt="">
 <img src="hood3.jpeg" alt="">

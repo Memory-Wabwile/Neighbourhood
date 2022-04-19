@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+{% load static %}
+<div style="background-color: rgb(6, 6, 51); height: 140vh;" class="container-fluid pt-4">
+    <div class="col-8">
+        <div class="container">
+            <h2 style="color: white; text-align: center;"> Add your business here</h2>
+            <form action="" method="POST" enctype="multipart/form-data" novalidate>
+                {%csrf_token%}
+
+                {% bootstrap_form form layout='inline' %}
+                <div  style="justify-content: space-between;" class="buttons">
+                    <button type=submit class="btn btn-sm btn-info" value="Upload">Upload</button>
+                    <button type=submit class="btn btn-sm btn-outline-info"><a style="color: white;"
+                        href="{%url 'home' %}">Back</a></button>
+
+                    <p class="mt-4"><em><strong style="color: white;" > N/B :  Click on "Back" to Go back to home page then click on your hood to view your post</strong></em></p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
