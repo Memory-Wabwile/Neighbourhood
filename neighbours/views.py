@@ -23,6 +23,19 @@ def profile(request):
 def post(request):
     message = "create a post"
 
+    current_user = request.user
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = current_user
+
+            post.save()
+
+        return redirect('hood')
+
+    else:
+        form = PostForm()
     return render(request, 'post.html' , {'messsage':message})
 
 def hood(request,id):
@@ -85,5 +98,6 @@ def business(request):
 
     else:
         form = BusinessForm()
-    return render(request, 'newbiz.html', {"form": form})
+    return render(request, 'business.html', {"form": form})
+
 
