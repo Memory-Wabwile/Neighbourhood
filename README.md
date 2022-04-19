@@ -5,7 +5,7 @@ Memory Wabwile<br>
 https://github.com/Memory-Wabwile
 
 ## Description
-Neighbourhood is an application that enables users to know what is going on in their neighbourhood after logging in to the site and indicating their location.
+Neighbourhood is an application that enables users to know what is going on in their neighbourhood after logging in to the site and choosing their location.
 
 ## Live Site
 click on  to view the site
@@ -21,7 +21,7 @@ click on  to view the site
 
 ## Design
 Landing page design for Instagram clone
-<img src="award1.jpeg" alt="">
+<img src="hood1.jpg" alt="">
 <img src="award2.jpeg" alt="">
 
 
