@@ -8,7 +8,7 @@ https://github.com/Memory-Wabwile
 Neighbourhood is an application that enables users to know what is going on in their neighbourhood after logging in to the site and choosing their location. Users are also able to update others on what's going on and see the available businesses in the neighbourhood.
 
 ## Live Site
-click on  to view the site
+click on https://hoodmemson.herokuapp.com/ to view the site
 
 ## BDD
 1. A user is able to sign up then log in to the application.
@@ -41,7 +41,7 @@ Python Venv<br>
 
 ## Setup instructions
 <ul>
-<li>click on  to clone this repository</li><br>
+<li>click on https://github.com/Memory-Wabwile/Neighbourhood.git to clone this repository</li><br>
 <li>open the terminal and type "git clone "</li> <br>
 <li>Navigate into the folder and install requirements using the command
 "cd instagram " <br>then "pip install -r requirements.txt" </li><br>
