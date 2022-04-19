@@ -5,7 +5,7 @@ Memory Wabwile<br>
 https://github.com/Memory-Wabwile
 
 ## Description
-Neighbourhood is an application that enables users to know what is going on in their neighbourhood after logging in to the site and choosing their location.
+Neighbourhood is an application that enables users to know what is going on in their neighbourhood after logging in to the site and choosing their location. Users are also able to update others on what's going on and see the available businesses in the neighbourhood.
 
 ## Live Site
 click on  to view the site
@@ -39,8 +39,8 @@ Python Venv<br>
 
 ## Setup instructions
 <ul>
-<li>click on https://memawwwards.herokuapp.com/ to clone this repository</li><br>
-<li>open the terminal and type "git clone https://memawwwards.herokuapp.com/"</li> <br>
+<li>click on  to clone this repository</li><br>
+<li>open the terminal and type "git clone "</li> <br>
 <li>Navigate into the folder and install requirements using the command
 "cd instagram " <br>then "pip install -r requirements.txt" </li><br>
 <li>Install and activate Virtual
