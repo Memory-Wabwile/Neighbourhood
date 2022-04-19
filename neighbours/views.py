@@ -39,6 +39,18 @@ def hood(request,id):
 def search(request):
     message = "searched items"
 
+   
+    if 'business' in request.GET and request.GET["business"]:
+        searched = request.GET.get("business")
+        searched_bussiness = Business.find_business(searched)
+        message = f"{searched}"
+
+        return render(request, 'search.html',{"message":message,"searched_business": searched_bussiness})
+
+    else:
+        message = "You haven't searched for any term"
+        
+
     return render (request , 'search.html' , {'message':message})
 
 def updateProfile(request):

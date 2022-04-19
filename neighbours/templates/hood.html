@@ -1,5 +1,6 @@
 {% extends 'base.html'%}
-{% loads bootstrap4}
+{% load bootstrap4 %}
+{% load bootstrap_icons %}
 {% block content%}
 {{ block.super}}
 
@@ -38,20 +39,38 @@
         <div class="col-sm-8 col-md-8">
             <h1 style="text-align: center;">Businesses in {{hood.name}} </h1>
 
-            <div class="card-columns">
+            <div style="padding-top: 1%;" class="col-sm-6 col-md-6">
+
+                <form role="search" action="{% url 'search' %}">
+
+                    <div class="input-group">
+                        <input style="background-color: #efefef;" type="text" class="form-control"
+                            placeholder="Search for businesses" name="postss">
+                        <div class="input-group-btn">
+                            <button style="border: 1px solid rgb(71, 69, 69);" class="btn btn-default"
+                                type="search">{% bs_icon 'search' %}
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div class="card-columns mt-5">
                 <div class="card">
                     <div class="card-header text-center"><strong>{{business.name}}</strong></div>
                     <div class="card-body text-center">
-                    
+
                         <p class="card-text">{{business.description}}</p>
                         <p>{{business.email}}</p>
                     </div>
                     <div class="card-footer">
-                        <p>Owner : {{business.user}}  </p>
+                        <p>Owner : {{business.user}} </p>
                     </div>
                 </div>
             </div>
-       
+
         </div>
         {%endfor%}
         {%else%}
@@ -59,29 +78,38 @@
         {%endif%}
 
     </div>
-    <hr>
-    <span>
-        <h3 style="text-align: center;">Events in the hood</h3>
-    </span>
-    <hr>
-    <div class="row justify-content-md-center mb-5">
-        {%if posts%}
-        <div class="col-sm-6 col-md-6 ">
-            {% for post in posts%}
-            <h4>{{post.title}}</h4>
-            <br>
+    <div class="mt-5">
 
-            <img style="width: 100%;box-shadow: 3px 3px 5px black;" src="{{post.post_image.url}}" alt="">
-            <h6>{{post.post_description}}</h6>
+        <h1 style="text-align: center;">Upcoming Events in the hood</h1>
 
-            {%endfor%}
+
+        <div class="row justify-content-md-center mb-5">
+            {%if posts%}
+            
+                {% for post in posts%}
+                <div class="card-columns ">
+                    <div class="card" style="width:400px ; margin-left: 4%; box-shadow: 3px 3px 5px black;">
+                        <img style="width: 100%;" src="{{post.post_image.url}}" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">{{post.title}}</h4>
+                            <p class="card-text">{{post.post_description}}</p>
+                            <p>By : {{post.user}}</p>
+                            <p>Posted on {{post.date}}</p>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                {%endfor%}
+            
+
+            {%else%}
+            <p>no new posts in this hood</p>
+            {%endif%}
+
+
         </div>
-
-        {%else%}
-        <p>There are no new posts in this hood</p>
-        {%endif%}
-
-
     </div>
 </div>
 {%endblock%}

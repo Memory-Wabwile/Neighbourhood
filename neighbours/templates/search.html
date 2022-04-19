@@ -1,1 +1,36 @@
-{{message}}
+{%extends 'base.html'%} 
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      {% if searched_business%}
+      <h2>Found {{ searched_business|length }} posts</h2>
+
+      {% for business in searched_business %}
+     
+      <div class="card-columns ">
+        <div class="card" style="width:400px ; margin-left: 4%; box-shadow: 3px 3px 5px black;">
+            <img style="width: 100%;" src="{{business.post_image.url}}" alt="">
+            <div class="card-body">
+                <h4 class="card-title">{{business.title}}</h4>
+                <p class="card-text">{{business.post_description}}</p>
+                <p>By : {{business.user}}</p>
+                <p>Posted on {{business.date}}</p>
+
+            </div>
+        </div>
+    </div>
+
+      {% endfor %}
+
+      
+      {% else %}
+      <h2> Found 0 projects by the name  </h2>
+      {% endif %}
+     
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
