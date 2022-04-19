@@ -108,4 +108,4 @@ class PostTest(TestCase):
     def test_delete_post(self):
         self.post.delete_post()
         post = Post.objects.all()
-        self.assertFalse(len(post) > 0)
+        self.assertFalse(len(post)> 0)
