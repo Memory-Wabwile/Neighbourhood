@@ -12,9 +12,9 @@ class ProfileTest(TestCase):
      
         self.user = User(username="nimoh", password="pass123")
         self.user.save()
-        self.neighbourhood =  Neighbourhood(hood_name = "Nakuru", location= "Milimani", admin = self.user,description='nyumbakumi', profile_pic="myhood.jpg")
+        self.neighbourhood =  Neighbourhood(name = "Nairobi", location= "Rongai", admin = self.user,description='Good ambience', image="myhood.jpg" , health="720987564" , police="700099966")
         self.neighbourhood.save()
-        self.profile = Profile(email='info@g.com', profile_pic='profile.jpg', bio='profile',neighbourhood=self.neighbourhood,
+        self.profile = Profile(email='tests@gmail.com', profile_pic='profile.jpg', bio='living life',neighbourhood=self.neighbourhood,
                                     user=self.user)
       
     def test_instance(self):
@@ -41,9 +41,9 @@ class NeighbourhoodTest(TestCase):
 
     def setUp(self):
      
-        self.user = User(username="username", password="password")
+        self.user = User(username="nimoh", password="pass123")
         self.user.save()
-        self.neighbourhood =  Neighbourhood(hood_name = "Nakuru", hood_location= "Milimani", admin = self.user,hood_description='nyumbakumi', hood_photo="myhood.jpg")
+        self.neighbourhood = Neighbourhood(name = "Nairobi", location= "Rongai", admin = self.user,description='Good ambience', image="myhood.jpg" , health="720987564" , police="700099966")
         self.neighbourhood.save()
    
     def test_instance(self):
@@ -67,33 +67,34 @@ class BusinessTest(TestCase):
      
         self.user = User(username="username", password="password")
         self.user.save()
-        self.neighbourhood =  Neighbourhood(hood_name = "Nakuru", hood_location= "Milimani", admin = self.user,hood_description='nyumbakumi')
+        self.neighbourhood =  Neighbourhood(name = "Nairobi", location= "Rongai", admin = self.user,description='Good ambience', image="myhood.jpg" , health="720987564" , police="700099966")
         self.neighbourhood.save()
-        self.biz = Business(user=self.user,business_name="Sneakers", neighborhood=self.neighbourhood,business_email="sneakers@gmail.com", business_desc="Selling sneakers")
-        self.biz.save()
+        self.business = Business(name="akantsy",user=self.user,email="testss@gmail.com", neighborhood=self.neighbourhood, description="Selling sneakers")
+        self.business.save()
 
     def test_instance(self):
-        self.assertTrue(isinstance(self.biz,Business))
+        self.assertTrue(isinstance(self.business,Business))
 
     def test_save_business(self):
-        self.biz.save_business()
-        biz = Business.objects.all()
-        self.assertTrue(len(biz) > 0)
+        self.business.save_business()
+        business = Business.objects.all()
+        self.assertTrue(len(business) > 0)
 
     def test_delete_hood(self):
-        self.biz.delete_business()
-        biz = Business.objects.all()
-        self.assertFalse(len(biz) > 0)
+        self.business.delete_business()
+        business = Business.objects.all()
+        self.assertFalse(len(business) > 0)
+
 
 class PostTest(TestCase): 
 
     def setUp(self):
      
-        self.user = User(username="username", password="password")
+        self.user = User(username="nimoh", password="pass123")
         self.user.save()
-        self.neighbourhood =  Neighbourhood(hood_name = "Nakuru", hood_location= "Milimani", admin = self.user,hood_description='nyumbakumi', hood_photo="myhood.jpg")
+        self.neighbourhood =  Neighbourhood(name = "Nairobi", location= "Rongai", admin = self.user,description='Good ambience', image="myhood.jpg" , health="720987564" , police="700099966")
         self.neighbourhood.save()
-        self.post = Post(user=self.user,title="Sneakers",image="post.jpg" ,content ="my post", timestamp=datetime.datetime,neighbourhood=self.neighbourhood)
+        self.post = Post(title="akanstry", post_image="tetsts.jpg" ,post_description ="my postss",user=self.user,neighbourhood=self.neighbourhood, date=datetime.datetime)
         self.post.save()
 
     def test_instance(self):
