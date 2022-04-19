@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
 from .models import Profile, Neighbourhood, Business, Post
 
 # Create your views here.
@@ -57,3 +57,16 @@ def updateProfile(request):
     message = "update profile"
 
     return render (request , 'updateProfile.html' , {'message':message})
+
+def joinhood(request, id):
+    hood = get_object_or_404(Neighbourhood, id=id)
+    request.user.profile.neighbourhood = hood
+    request.user.profile.save()
+    return redirect('hood')
+
+
+def leavehood(request, id):
+    hood = get_object_or_404(Neighbourhood, id=id)
+    request.user.profile.neighbourhood = None
+    request.user.profile.save()
+    return redirect('hood')
