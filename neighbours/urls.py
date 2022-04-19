@@ -10,5 +10,7 @@ urlpatterns = [
     path('updateProfile/' , views.updateProfile , name = "updateProfile"),
     path('post/', views.post, name='post'),
     path('hood/<int:id>' , views.hood , name ='hood'),
+    path('joinhood/<id>', views.joinhood, name='joinhood'),
+    path('leavehood/<id>', views.leavehood, name='leavehood'),
 
 ]
