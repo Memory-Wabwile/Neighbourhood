@@ -11,9 +11,12 @@
                 {%csrf_token%}
 
                 {% bootstrap_form form layout='inline' %}
-                <div  style="justify-content: space-evenly;" class="buttons">
-                    <button type=submit class="btn btn-sm btn-info" value="Upload"> <a href="{% url 'hood' hood.id %}"> Upload</a></button>
-                    
+                <div  style="justify-content: space-between;" class="buttons">
+                    <button type=submit class="btn btn-sm btn-info" value="Upload">Upload</button>
+                    <button type=submit class="btn btn-sm btn-outline-info"><a style="color: white;"
+                        href="{%url 'home' %}">Back</a></button>
+
+                    <p class="mt-4"><em><strong style="color: white;" > N/B :  Click on "Back" to Go back to home page then click on your hood to view your post</strong></em></p>
                 </div>
             </form>
 
