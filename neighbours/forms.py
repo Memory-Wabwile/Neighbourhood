@@ -13,3 +13,14 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         exclude = ('user',)
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields =['profile_pic', 'bio']
+
+
+class NewHoodForm(forms.ModelForm):
+    class Meta:
+        model = Neighbourhood
+        exclude = ('admin',)

@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Profile, Neighbourhood, Business, Post
-
+from .forms import BusinessForm , PostForm , ProfileUpdateForm , NewHoodForm
 # Create your views here.
 
 def landing(request):
@@ -70,3 +70,20 @@ def leavehood(request, id):
     request.user.profile.neighbourhood = None
     request.user.profile.save()
     return redirect('hood')
+
+def business(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = BusinessForm(request.POST, request.FILES)
+        if form.is_valid():
+            business = form.save(commit=False)
+            business.user = current_user
+
+            business.save()
+
+        return redirect('hood')
+
+    else:
+        form = BusinessForm()
+    return render(request, 'newbiz.html', {"form": form})
+
