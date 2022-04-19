@@ -29,7 +29,7 @@ def hood(request,id):
     message = "hoods page"
     hood=Neighbourhood.objects.get(id=id)
     current_hood=hood.name
-    buseness=Business.objects.filter(neighborhood=id)
+    buseness=Business.objects.filter(neighbourhood=id)
     posts=Post.objects.filter(neighborhood=id)
     
 

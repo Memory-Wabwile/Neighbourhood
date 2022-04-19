@@ -4,88 +4,84 @@
 {{ block.super}}
 
 <div class="container-fluid">
-  <div class="row ">
-    <div class="col-sm-7"></div>
-    <div class="col-sm-3  ">
-      <form class="navbar-form" role="search" action="{% url 'search_bizz' %}">
 
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search bizz" name="bizz">
-          <div class="input-group-btn">
-            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-          </div>
-        </div>
-
-      </form>
-    </div>
-  </div>
 
     <div class="row">
         {%if hood%}
-        
-        <div class="col-sm-7 mt-5"> <h3>{{hood.name}} </h3>
+        <div class="col-sm-5 col-md-5 mt-5"> <a href="{% url 'home'%}"> <img style="width: 100%; border-radius: 25px;"
+                    src="{{hood.image.url}}" alt="neighbourhood image"></a></div>
+        <div class="col-sm-7 mt-5">
+            <h3 class="mt-4"> <strong> {{hood.name}}</strong> </h3>
+            <h3> location: {{hood.location}}</h3>
+            <p style="font-size: 25px;">{{hood.description}}</p>
+            <h3> Count : {{hood.count}} members</h3>
 
-        <h5> population: {{hood.count}}</h5>
-        <p> location: {{hood.location}}</p>
-        <p>{{hood.description}}</p>
-        <p> registered by: {{hood.admin}}</p>
-        
-        
+            <h3> Registered by: {{hood.admin}}</h3>
+            <h3>Police Contact : {{hood.police}}</h3>
+            <h3>Healthcare Number : {{hood.health}}</h3>
+
         </div>
-        <div class="col-sm-5 col-md-5 mt-5"> <a href="{% url 'home'%}"> <img style="width: 100%;" src="{{hood.image.url}}" alt="neighbourhood image"></a></div>
-      </div>
-        
-      {%else%}
-      <div class="col-sm-4 col-md-5">there are no registered hoods </div>
-       
-      {%endif%}
 
-      <div class="row mt-5 justify-content-md-center">
-          {% if business %}
-         
-          {%for business in business%}
-        
-          
+    </div>
+
+    {%else%}
+    <div class="col-sm-4 col-md-5">there are no registered hoods </div>
+
+    {%endif%}
+
+    <div class="row mt-5 justify-content-md-center">
+        {% if business %}
+
+        {%for business in business%}
+
+
         <div class="col-sm-8 col-md-8">
-            <h5>Businesses in this area</h5>
-           <ol><li> {{business.name}} <br>
-            {{business.description}} <br>
-            {{business.neighbourhood}} <br>
-            {{business.email}} <br>
-            posted by:{{business.user}} <br>
-            <br>
-            
-            
-        </li>
-           </ol>
-          
+            <h1 style="text-align: center;">Businesses in {{hood.name}} </h1>
+
+            <div class="card-columns">
+                <div class="card">
+                    <div class="card-header text-center"><strong>{{business.name}}</strong></div>
+                    <div class="card-body text-center">
+                    
+                        <p class="card-text">{{business.description}}</p>
+                        <p>{{business.email}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <p>Owner : {{business.user}}  </p>
+                    </div>
+                </div>
+            </div>
+       
         </div>
         {%endfor%}
         {%else%}
         <div class="col-sm-4 col-md-4">there are no registered businesses </div>
         {%endif%}
 
-      </div>
-       <hr>
-       <span ><h3 style="text-align: center;">Events in the hood</h3> </span>
-       <hr>
-      <div class="row justify-content-md-center mb-5">
+    </div>
+    <hr>
+    <span>
+        <h3 style="text-align: center;">Events in the hood</h3>
+    </span>
+    <hr>
+    <div class="row justify-content-md-center mb-5">
         {%if posts%}
-        <div class="col-sm-6 col-md-6 " >
-        {% for post in posts%}
-        <h4>{{post.title}}</h4> 
-        <br>
-        
-         <img style="width: 100%;box-shadow: 3px 3px 5px black;" src="{{post.post_image.url}}" alt="">
-         <h6>{{post.post_description}}</h6>
-        
-        {%endfor%}</div>
-        
+        <div class="col-sm-6 col-md-6 ">
+            {% for post in posts%}
+            <h4>{{post.title}}</h4>
+            <br>
+
+            <img style="width: 100%;box-shadow: 3px 3px 5px black;" src="{{post.post_image.url}}" alt="">
+            <h6>{{post.post_description}}</h6>
+
+            {%endfor%}
+        </div>
+
         {%else%}
         <p>There are no new posts in this hood</p>
         {%endif%}
-        
-       
-      </div>
+
+
+    </div>
 </div>
 {%endblock%}
